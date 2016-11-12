@@ -1,0 +1,21 @@
+﻿Import
+
+    from docx.enum.style import WD_STYLE_TYPE
+    from docx.shared import Pt
+
+When define
+
+    obj_styles = document.styles
+    obj_charstyle = obj_styles.add_style('CommentsStyle', WD_STYLE_TYPE.CHARACTER)
+    obj_font = obj_charstyle.font
+    obj_font.size = Pt(10)
+    obj_font.name = 'TH SarabunPSK'
+
+When using
+
+    p.add_run( Any string value , style='CommentsStyle').bold = True
+
+ปล. เปลี่ยนแค่ obj_font.size
+        obj_font.name
+        'CommentsStyle'
+                                                             ก็พอ

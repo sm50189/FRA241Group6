@@ -1,0 +1,15 @@
+.idea/workspace.xml
+*.pyc
+*.png
+*.jpg
+*.sqlite
+fra241project.egg-info/dependency_links.txt
+fra241project.egg-info/not-zip-safe
+.idea/FRA241Group6.iml
+fra241project.egg-info/SOURCES.txt
+fra241project.egg-info/entry_points.txt
+*.xml
+fra241project.egg-info/PKG-INFO
+fra241project.egg-info/top_level.txt
+fra241project.egg-info/requires.txt
+.idea/workspace.xml___jb_tmp___

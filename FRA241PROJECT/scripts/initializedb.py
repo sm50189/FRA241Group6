@@ -16,9 +16,15 @@ from ..models.meta import Base
 from ..models import (
     get_session
     )
-from ..models import Project
-from ..models import User
+from ..models import (Project,
+                      User,
+                      Equipment,
+                      Obligation,
+                      Member_table,
+                      Member,
+                      )
 
+import datetime
 
 def usage(argv):
     cmd = os.path.basename(argv[0])
@@ -44,9 +50,23 @@ def main(argv=sys.argv):
     with transaction.manager:
         session = get_session(maker, transaction.manager)
 
-        dummy_User = User(first_name = 'dummy', last_name = 'dummy', password ='dummy',stu_id = 00000)
+        dummy_User = User(First_name = 'GOD', Last_name = 'DAMN', role ='GOD',student_id = 00000,Email = 'GOD@FIBO.com',user_id = 'GODdamn',year=0)
+        dummy_User.hash_password('dummy')
 
-        dummy_project = Project(title = 'dummy',description ='dummy',status ='dummy',owner_id =00000)
+        dummy_project = Project(title = 'GOD PROJECT',description ='It a god very duty no such a normal human will understand.',status ='Neary done',type ='GOD duty',start_date=datetime.date(datetime.MINYEAR,1,1),finish_date = datetime.date(datetime.MAXYEAR,12,31))
+        dummy_project.leader = dummy_User
+        dummy_project.advisor=dummy_User
+        dummy_project.project_member.append(dummy_User)
+
+        dummy_equipment = Equipment(name = 'Legendary item',cost = 1000000000000000, buy_date = datetime.date(datetime.MINYEAR,1,1), contract = 'Only God will know', status='Wait for TRUE HERO to be found',)
+        dummy_equipment.asso_to = dummy_project
+        dummy_equipment.owner = dummy_User
+
+        dummy_obligation = Obligation(type = 'Duty from GOD', description = 'wait for the TRUE HERO', duty = 'Find Legendary item', status='Not found yet')
+        dummy_obligation.asso_to = dummy_project
+        dummy_obligation.equipment = dummy_equipment
 
         session.add(dummy_project)
         session.add(dummy_User)
+        session.add(dummy_equipment)
+        session.add(dummy_obligation)

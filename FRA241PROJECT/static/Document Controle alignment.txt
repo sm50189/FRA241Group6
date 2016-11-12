@@ -1,0 +1,33 @@
+Import
+
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.shared import Inches
+
+Using with paragraph
+
+    document.add_something( Any string value ).alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+Using with picture
+
+    document.add_picture('Path to picture',height=Inches(3.44))
+    last_paragraph = document.paragraphs[-1]
+    last_paragraph.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+LEFT
+    Left-aligned
+CENTER
+    Center-aligned.
+RIGHT
+    Right-aligned.
+JUSTIFY
+    Fully justified.
+DISTRIBUTE
+    Paragraph characters are distributed to fill the entire width of the paragraph.
+JUSTIFY_MED
+    Justified with a medium character compression ratio.
+JUSTIFY_HI
+    Justified with a high character compression ratio.
+JUSTIFY_LOW
+    Justified with a low character compression ratio.
+THAI_JUSTIFY
+    Justified according to Thai formatting layout.
