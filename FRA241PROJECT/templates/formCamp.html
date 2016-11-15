@@ -31,12 +31,14 @@
     <![endif]-->
     <style type="text/css">
       h2 {font-size: 150%}
-      <!--การเปรียบเทียบกิจกรรม-->
     </style>
+<<<<<<< HEAD
+=======
     <link rel="stylesheet" href="${request.static_url('FRA241PROJECT:static/indexAddproject/bootstrap.css')}"/>
     <link rel="stylesheet" href="${request.static_url('FRA241PROJECT:static/indexAddproject/bower_components/Font-Awesome/css/font-awesome.css')}"/>
     <link rel="stylesheet" href="${request.static_url('FRA241PROJECT:static/indexAddproject/build.css')}"/>
 
+>>>>>>> refs/remotes/sm50189/New-branch
     <!-- วัตถุประสงค์0-->
     <script type="text/javascript">
       function CreateNewRow0(text)
@@ -427,8 +429,12 @@
   </div>
   <div class="form-group">
     <label class="col-md-3 control-label">การเทียบค่ากิจกรรม</label>
-    <div class="col-md-6 inputGroupContainer">
+    <div class="col-md-5 inputGroupContainer">
       <div class="input-group">
+<<<<<<< HEAD
+        <span class="input-group-addon"><i class="glyphicon glyphicon-stats"></i></span>
+        <textarea class="form-control" value = "${project_Calibration}" name="Calibration" >${project_Calibration}</textarea>
+=======
         <div class="radio radio-success">
           <input type="radio" name="myradio" id="myradio1" value="1" tal:attributes = "checked myradio1 | nothing" >
           <label >กิจกรรมเลือกเข้าร่วม</label>
@@ -506,29 +512,10 @@
 
           <!--/table-->
         </div>
+>>>>>>> refs/remotes/sm50189/New-branch
       </div>
     </div>
   </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-  <!--<script type="text/javascript" src="js.js"></script>  -->
-  <script type="text/javascript">
-    $(function(){
-
-      // เมื่อ radio ชื่อว่า myradio ถูก คลิก
-      $(":radio[name='myradio']").on("click",function(){
-        var valData=$(this).val(); // เก็บค่า ไว้ในตัวแปร
-        if(valData==2){ // เปรียบเทียบค่า
-          $("#place_select").hide(); // ซ่อนส่วนที่ต้องการ
-        }else{
-          $("#place_select").show();   //แสดงส่วนที่ต้องการ
-        }
-      });
-
-    });
-  </script>
-
-
-
   <div class="form-group">
     <label class="col-md-3 control-label" >ผู้รับผิดชอบ</label>
     <div class="col-md-5 inputGroupContainer">
@@ -657,14 +644,6 @@
 
           </tr>
         </table>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="col-md-3 control-label">ยืมเงินหรือไม่</label>
-    <div class="col-md-5 inputGroupContainer">
-      <div class="input-group">
-        <input id="L_M" name="L_M" value="1" class="styled" type="checkbox">
       </div>
     </div>
   </div>
