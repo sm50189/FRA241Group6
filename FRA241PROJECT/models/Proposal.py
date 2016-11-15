@@ -22,36 +22,46 @@ class Proposal(Base):
     activity_location = Column(Text)#สถานที่จัดกิจกรรม/สถานที่ดำเนินงาน/สถานที่ปฏิบัติงาน
     Reason = Column(Text)#หลักการ และเหตุผล
 
-    objective = relationship("Objective", back_populates = "parent_proposal")#วัตถุประสงค์
+    # objective = relationship("Objective", back_populates = "parent_proposal")#วัตถุประสงค์
+    objective = Column(Text)#วัตถุประสงค์
 
     activity_comparition = Column(Text)#การเทียบค่ากิจกรรม
     duration = Column(Text)#ระยะเวลาดำเนินงาน
 
-    owner_for_proposal = relationship("Owner_for_proposal",back_populates = "parent_proposal")#ผู้รับผิดชอบ
-    member_for_proposal = relationship("Member_for_proposal",back_populates = "parent_proposal")#ผู้เข้าร่วม
+    # owner_for_proposal = relationship("Owner_for_proposal",back_populates = "parent_proposal")#ผู้รับผิดชอบ
+    # member_for_proposal = relationship("Member_for_proposal",back_populates = "parent_proposal")#ผู้เข้าร่วม
+    owner_for_proposal = Column(Text)#ผู้รับผิดชอบ
+    member_for_proposal = Column(Text)#ผู้เข้าร่วม
+    advisor_for_proposal = Column(Text)
 
     number_of_member = Column(Integer)
     evaluation_index = Column(Text)#รูปแบบการประเมินผล
-    profit = Column(Text)#ประโบชน์ที่คาดว่าจะได้รับ/ผลที่คาดว่าจะได้รับ
+    profit = Column(Text)#ผลที่คาดว่าจะได้รับ,ประโบชน์ที่คาดว่าจะได้รับ
+
+    # benefit = Column(Text)#ประโบชน์ที่คาดว่าจะได้รับ
+
     type_of_activity = Column(Text)#ลักษณะกิจกรรม/ลักษณะการปฏิบัติงาน
 
-    cost = relationship("Cost",back_populates="parent_proposal")#ค่าใช้จ่ายในการจัดกิจกรรม
-    delicate_budget = relationship("Delicate_budget",back_populates = "parent_proposal")#งบประมาณโดยละเอียด
+    # cost = relationship("Cost",back_populates="parent_proposal")#ค่าใช้จ่ายในการจัดกิจกรรม
+    # delicate_budget = relationship("Delicate_budget",back_populates = "parent_proposal")#งบประมาณโดยละเอียด
+    cost = Column(Text)#ค่าใช้จ่ายในการจัดกิจกรรม
+    delicate_budget = Column(Text)#งบประมาณโดยละเอียด/งบประมาณที่ใช้
 
     success_criteria = Column(Text)#ตัวชี้วัดความสำเร็จของโครงการ
 
-    schedule = relationship("Schedule",back_populates = "parent_proposal")#ตารางการดำเนินกิจกกรม
-    previouse_result = relationship("Previouse_result",back_populates = "parent_proposal")#ผลการจัดที่ผ่านมา
+    # schedule = relationship("Schedule",back_populates = "parent_proposal")#ตารางการดำเนินกิจกกรม
+    # previouse_result = relationship("Previouse_result",back_populates = "parent_proposal")#ผลการจัดที่ผ่านมา
+    schedule = Column(Text)#ตารางการดำเนินกิจกกรม
+    previouse_result = Column(Text)#ผลการจัดที่ผ่านมา
 
     parent_id = Column(Integer, ForeignKey("Project.id"))
     parent_project = relationship("Project", back_populates = "proposal", uselist = False)
 
     def __enter__(self):
-        pass
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         pass
-
 
 
 class Objective(Base):
@@ -59,11 +69,11 @@ class Objective(Base):
     id = Column(Integer , primary_key=True)
     text = Column(Text)
 
-    proposal_id = Column(Integer,ForeignKey("Proposal.id"))
-    parent_proposal = relationship("Proposal", back_populates="objective")
+    # proposal_id = Column(Integer,ForeignKey("Proposal.id"))
+    # parent_proposal = relationship("Proposal", back_populates="objective")
 
     def __enter__(self):
-        pass
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         pass
@@ -73,8 +83,8 @@ class Cost(Base):
     id = Column(Integer,primary_key=True)
     text  =Column(Text)
 
-    proposal_id = Column(Integer,ForeignKey("Proposal.id"))
-    parent_proposal = relationship("Proposal",back_populates="cost")
+    # proposal_id = Column(Integer,ForeignKey("Proposal.id"))
+    # parent_proposal = relationship("Proposal",back_populates="cost")
 
     def __enter__(self):
         return self
@@ -87,8 +97,8 @@ class Previouse_result(Base):
     id = Column(Integer,primary_key=True)
     text = Column(Text)
 
-    proposal_id = Column(Integer,ForeignKey("Proposal.id"))
-    parent_proposal = relationship("Proposal",back_populates = "previouse_result")
+    # proposal_id = Column(Integer,ForeignKey("Proposal.id"))
+    # parent_proposal = relationship("Proposal",back_populates = "previouse_result")
 
     def __enter__(self):
         return self
@@ -101,8 +111,8 @@ class Owner_for_proposal(Base):
     id = Column(Integer,primary_key=True)
     text = Column(Text)
 
-    proposal_id = Column(Integer, ForeignKey("Proposal.id"))
-    parent_proposal = relationship("Proposal",back_populates="owner_for_proposal")
+    # proposal_id = Column(Integer, ForeignKey("Proposal.id"))
+    # parent_proposal = relationship("Proposal",back_populates="owner_for_proposal")
 
     def __enter__(self):
         return self
@@ -115,8 +125,8 @@ class Member_for_proposal(Base):
     id = Column(Integer,primary_key=True)
     text = Column(Text)
 
-    proposal_id = Column(Integer, ForeignKey("Proposal.id"))
-    parent_proposal = relationship("Proposal",back_populates = "member_for_proposal")
+    # proposal_id = Column(Integer, ForeignKey("Proposal.id"))
+    # parent_proposal = relationship("Proposal",back_populates = "member_for_proposal")
 
     def __enter__(self):
         return self
@@ -131,8 +141,8 @@ class Delicate_budget(Base):
     descrip = Column(Text)#รายละเอียด
     value = Column(Text)#จำนวนเงิน
 
-    proposal_id = Column(Integer, ForeignKey("Proposal.id"))
-    parent_proposal = relationship("Proposal",back_populates = "delicate_budget")
+    # proposal_id = Column(Integer, ForeignKey("Proposal.id"))
+    # parent_proposal = relationship("Proposal",back_populates = "delicate_budget")
 
     def __enter__(self):
         return self
@@ -146,8 +156,8 @@ class Schedule(Base):
     time = Column(Text)
     descrip = Column(Text)
 
-    proposal_id = Column(Integer, ForeignKey("Proposal.id"))
-    parent_proposal = relationship("Proposal",back_populates = "schedule")
+    # proposal_id = Column(Integer, ForeignKey("Proposal.id"))
+    # parent_proposal = relationship("Proposal",back_populates = "schedule")
 
     def __enter__(self):
         return self

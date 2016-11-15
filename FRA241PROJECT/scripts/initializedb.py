@@ -55,7 +55,7 @@ def main(argv=sys.argv):
 
         dummy_project = Project(title = 'GOD PROJECT',description ='It a god very duty no such a normal human will understand.',status ='Neary done',type ='GOD duty',start_date=datetime.date(datetime.MINYEAR,1,1),finish_date = datetime.date(datetime.MAXYEAR,12,31))
         dummy_project.leader = dummy_User
-        dummy_project.advisor=dummy_User
+        dummy_project.advisor.append(dummy_User)
         dummy_project.project_member.append(dummy_User)
 
         dummy_equipment = Equipment(name = 'Legendary item',cost = 1000000000000000, buy_date = datetime.date(datetime.MINYEAR,1,1), contract = 'Only God will know', status='Wait for TRUE HERO to be found',)

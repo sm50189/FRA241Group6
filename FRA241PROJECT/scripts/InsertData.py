@@ -9,7 +9,7 @@ from pyramid.paster import (
 
 from pyramid.scripts.common import parse_vars
 
-from sqlalchemy import engine_from_config
+from sqlalchemy import engine_from_config,Column
 from sqlalchemy.orm import sessionmaker
 
 from ..models.meta import Base
@@ -23,6 +23,7 @@ from ..models import (Project,
                       Member_table,
                       Member,
                       )
+
 
 import datetime
 
@@ -40,7 +41,7 @@ def main(argv=sys.argv):
     options = parse_vars(argv[2:])
     setup_logging(config_uri)
     settings = get_appsettings(config_uri, options=options)
-
+    print settings
     engine = engine_from_config(settings,prefix='sqlalchemy.')
     Base.metadata.create_all(engine)
 

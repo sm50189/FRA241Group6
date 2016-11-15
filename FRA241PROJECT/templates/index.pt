@@ -19,18 +19,18 @@
 
 
   <!-- Bootstrap Core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${request.static_url('FRA241PROJECT:static/index/vendor/bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
 
   <!-- Custom Fonts -->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="${request.static_url('FRA241PROJECT:static/index/vendor/font-awesome/css/font-awesome.min.css')}" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
   <!-- Plugin CSS -->
-  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="${request.static_url('FRA241PROJECT:static/vendor/magnific-popup/magnific-popup.css')}" rel="stylesheet">
 
   <!-- Theme CSS -->
-  <link href="css/creative.min.css" rel="stylesheet">
+  <link href="${request.static_url('FRA241PROJECT:static/index/css/creative.min.css')}" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -82,7 +82,7 @@
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
       </button>
-      <a class="navbar-brand page-scroll" href="#page-top">ชื่อของผู้ใช้งาน</a>
+      <a class="navbar-brand page-scroll" href="${request.route_url('home')}">${request.user.user_id}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -91,12 +91,12 @@
 
 
 
-        <li>
+        <!--li>
           <a class="page-scroll" href="#plus">    <big class="glyphicon glyphicon-plus"></big></a> <!--พิ่มโครงการ-->
-        </li>
-        <li>
+        <!--/li-->
+        <!--li>
           <a class="page-scroll" href="#minus">    <big class="glyphicon glyphicon-minus"></big></a><!--ลบโครงการ-->
-        </li>
+        <!--/li-->
         <li>
           <a class="page-scroll" href="#money">    <big class="glyphicon glyphicon-usd"></big></a> <!--พิ่มโครงการ-->
         </li>
@@ -108,7 +108,7 @@
           <a class="page-scroll" href="#equipment"><big class="glyphicon glyphicon-wrench"></big></a>
         </li>
         <li>
-          <a class="page-scroll" href="#log out"><b>LOG OUT</b></a>
+          <a class="page-scroll" href="${request.route_url('logout')}"><b>LOG OUT</b></a>
         </li>
       </ul>
     </div>

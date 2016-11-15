@@ -14,15 +14,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${request.static_url('FRA241PROJECT:static/index/vendor/bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${request.static_url('FRA241PROJECT:static/index/vendor/font-awesome/css/font-awesome.min.css')}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="${request.static_url('FRA241PROJECT:static/index/vendor/magnific-popup/magnific-popup.css')}" rel="stylesheet">
     <!-- Theme CSS -->
-    <link href="css/creative.min.css" rel="stylesheet">
+    <link href="${request.static_url('FRA241PROJECT:static/index/css/creative.min.css')}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,6 +32,13 @@
     <style type="text/css">
       h2 {font-size: 150%}
     </style>
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="${request.static_url('FRA241PROJECT:static/indexAddproject/bootstrap.css')}"/>
+    <link rel="stylesheet" href="${request.static_url('FRA241PROJECT:static/indexAddproject/bower_components/Font-Awesome/css/font-awesome.css')}"/>
+    <link rel="stylesheet" href="${request.static_url('FRA241PROJECT:static/indexAddproject/build.css')}"/>
+
+>>>>>>> refs/remotes/sm50189/New-branch
     <!-- วัตถุประสงค์0-->
     <script type="text/javascript">
       function CreateNewRow0(text)
@@ -292,7 +299,7 @@
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand page-scroll" href="#page-top">ชื่อของผู้ใช้งาน</a>
+        <a class="navbar-brand page-scroll" href="${request.route_url('home')}">${request.user.user_id}</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -301,12 +308,12 @@
 
 
 
-          <li>
+          <!--li>
             <a class="page-scroll" href="#plus">    <big class="glyphicon glyphicon-plus"></big></a> <!--เพิ่มโครงการ-->
-          </li>
-          <li>
+          <!--/li-->
+          <!--li>
             <a class="page-scroll" href="#minus">    <big class="glyphicon glyphicon-minus"></big></a><!--ลบโครงการ-->
-          </li>
+          <!--/li-->
           <li>
             <a class="page-scroll" href="#money">    <big class="glyphicon glyphicon-usd"></big></a> <!--เพิ่มภาพ-->
           </li>
@@ -318,7 +325,7 @@
             <a class="page-scroll" href="#equipment"><big class="glyphicon glyphicon-wrench"></big></a>
           </li>
           <li>
-            <a class="page-scroll" href="#log out"><b>LOG OUT</b></a>
+            <a class="page-scroll" href="${request.route_url('logout')}"><b>LOG OUT</b></a>
           </li>
         </ul>
       </div>
@@ -415,8 +422,6 @@
         <table class="table table-striped"  id="OJExp">
           <tr>
             <script tal:repeat = "obj OJ_" >CreateNewRow0("${obj}");</script>
-
-
           </tr>
         </table>
       </div>
@@ -426,8 +431,88 @@
     <label class="col-md-3 control-label">การเทียบค่ากิจกรรม</label>
     <div class="col-md-5 inputGroupContainer">
       <div class="input-group">
+<<<<<<< HEAD
         <span class="input-group-addon"><i class="glyphicon glyphicon-stats"></i></span>
         <textarea class="form-control" value = "${project_Calibration}" name="Calibration" >${project_Calibration}</textarea>
+=======
+        <div class="radio radio-success">
+          <input type="radio" name="myradio" id="myradio1" value="1" tal:attributes = "checked myradio1 | nothing" >
+          <label >กิจกรรมเลือกเข้าร่วม</label>
+        </div>
+        <div class="radio radio-success">
+          <input type="radio" name="myradio" id="myradio2" value="2" tal:attributes = "checked myradio2 | nothing">
+          <label >กิจกรรมที่ไม่นับหน่วยชั่วโมง</label>
+        </div>
+
+        <div id="place_select">
+          <div class="checkbox checkbox-success">
+            <div class="row">
+              <div class="col-md-7" >
+                    <input id="checkbox1" name="checkbox1" value="1" class="styled" type="checkbox" tal:attributes =  "checked Checkbox1 | nothing">
+                    <label for="checkbox1">ด้านพัฒนาทักษะทางวิชาการและวิชาชีพ</label>
+              </div>
+              <div class="col-md-4"><input type="text" name="CB1" id="CB1" tal:attributes =  "value Checkbox1|nothing" maxlength="5" style="width:50px;" />ชั่วโมง</div>
+            </div>
+          </div>
+
+
+          <div class="checkbox checkbox-success">
+            <div class="row">
+              <div class="col-md-7">
+                  <input id="checkbox2" name="checkbox2" value="2" class="styled" type="checkbox" tal:attributes =  "checked Checkbox2| nothing">
+                  <label for="checkbox2">ด้านกีฬาและการส่งเสริมสุขภาพ</label>
+              </div>
+                <div class="col-md-4"><input type="text" name="CB2" id="CB2" value ="0" maxlength="5" style="width:50px;" />ชั่วโมง</div>
+              </div>
+            </div>
+
+
+          <div class="checkbox checkbox-success">
+            <div class="row">
+              <div class="col-md-7">
+                <input id="checkbox3" name="checkbox3" value="3" class="styled" type="checkbox" tal:attributes =  "checked Checkbox3| nothing">
+                <label for="checkbox3">ด้านบำเพ็ญประโยชน์และรักษาสิ่งแวดล้อม</label>
+              </div>
+              <div class="col-md-4"><input type="text" name="CB3" id="CB3" value ="0" maxlength="5" style="width:50px;" />ชั่วโมง</div>
+            </div>
+          </div>
+
+          <div class="checkbox checkbox-success">
+            <div class="row">
+              <div class="col-md-7">
+                <input id="checkbox4" name="checkbox4" value="4" class="styled" type="checkbox" tal:attributes =  "checked Checkbox4| nothing">
+                <label for="checkbox4">ด้านทำนุบำรุงศิลปะและวัฒนธรรม</label>
+                </div>
+                <div class="col-md-4"><input type="text" name="CB4" id="CB4" value ="0" maxlength="5" style="width:50px;" />ชั่วโมง</div>
+                </div>
+              </div>
+
+
+          <div class="checkbox checkbox-success">
+            <div class="row">
+              <div class="col-md-7">
+            <input id="checkbox5" name="checkbox5" value="5" class="styled" type="checkbox" tal:attributes =  "checked Checkbox5| nothing">
+            <label for="checkbox5">ด้านนันทนาการและการพัฒนาบุคลิกภาพ</label>
+              </div>
+              <div class="col-md-4"><input type="text" name="CB5" id="CB5" value ="0" maxlength="5" style="width:50px;" />ชั่วโมง</div>
+          </div>
+            </div>
+
+
+
+          <div class="checkbox checkbox-success">
+            <div class="row">
+              <div class="col-md-7">
+            <input id="checkbox6" name="checkbox6" value="6" class="styled" type="checkbox" tal:attributes =  "checked Checkbox6| nothing">
+            <label for="checkbox6">ด้านความภูมิใจ ความรัก ความผูกพันธ์มหาวิทยาลัย</label>
+              </div>
+              <div class="col-md-4"><input type="text" name="CB6" id="CB6" value ="0" maxlength="5" style="width:50px;" />ชั่วโมง</div>
+          </div>
+          </div>
+
+          <!--/table-->
+        </div>
+>>>>>>> refs/remotes/sm50189/New-branch
       </div>
     </div>
   </div>
