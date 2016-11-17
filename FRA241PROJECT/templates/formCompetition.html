@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+  <title>ระบบกิจกรรมนักศึกษา-โครงการการแข่งขัน</title>
+  <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+  <link rel='stylesheet prefetch' href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- library of header-->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+  <!-- Bootstrap Core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+  <!-- Plugin CSS -->
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+  <!-- Theme CSS -->
+  <link href="css/creative.min.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <style type="text/css">
+    h2 {font-size: 150%}
+  </style>
+  <!-- วัตถุประสงค์0-->
+  <script type="text/javascript">
+    function CreateNewRow0(text)
+    {
+      var intLine = parseInt(document.add_project_form.OJ.value);
+      intLine++;
+
+      var theTable = document.all.OJExp
+      var newRow = theTable.insertRow(theTable.rows.length)
+      newRow.id = newRow.uniqueID
+
+      var item1 = 1
+      var newCell
+
+      //*** Column 1 ***//
+      newCell = newRow.insertCell(0)
+      newCell.id = newCell.uniqueID
+      newCell.setAttribute("className", "css-name");
+      newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"50\" NAME=\"OJ"+intLine+"\" VALUE=\""+text+"\">"
+      //***<input type="text" size = "10" name = "OJ1_"+intLine "value = "">     "<INPUT TYPE=\"TEXT\" SIZE=\"10\" NAME=\"OJ1_"+intLine+"\" VALUE=\"\">"***//
+
+
+      document.add_project_form.OJ.value = intLine;
+    }
+
+    function RemoveRow0()
+    {
+      intLine = parseInt(document.add_project_form.OJ.value);
+      if(parseInt(intLine) > 0)
+      {
+        theTable = (document.all) ? document.all.OJExp :
+                document.getElementById("OJExp")
+        theTableBody = theTable.tBodies[0];
+        theTableBody.deleteRow(intLine);
+        intLine--;
+        document.add_project_form.OJ.value = intLine;
+      }
+    }
+  </script>
+  <!--ประโยชน์ที่คาดว่าจะได้รับ1-->
+  <script type="text/javascript">
+    function CreateNewRow1()
+    {
+      var intLine = parseInt(document.add_project_form.Benefits.value);
+      intLine++;
+
+      var theTable = document.all.BenefitsExp
+      var newRow = theTable.insertRow(theTable.rows.length)
+      newRow.id = newRow.uniqueID
+
+      var item1 = 1
+      var newCell
+
+      //*** Column 1 ***//
+      newCell = newRow.insertCell(0)
+      newCell.id = newCell.uniqueID
+      newCell.setAttribute("className", "css-name");
+      newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"50\" NAME=\"Benefits1_"+intLine+"\" VALUE=\"\">"
+
+
+
+      document.add_project_form.Benefits.value = intLine;
+    }
+
+    function RemoveRow1()
+    {
+      intLine = parseInt(document.add_project_form.Benefits.value);
+      if(parseInt(intLine) > 0)
+      {
+        theTable = (document.all) ? document.all.BenefitsExp :
+                document.getElementById("BenefitsExp")
+        theTableBody = theTable.tBodies[0];
+        theTableBody.deleteRow(intLine);
+        intLine--;
+        document.add_project_form.Benefits.value = intLine;
+      }
+    }
+  </script>
+  <!-- ผู้รับผิดชอบ2-->
+  <script type="text/javascript">
+    function CreateNewRow2(text)
+    {
+      var intLine = parseInt(document.add_project_form.P_R.value);
+      intLine++;
+
+      var theTable = document.all.P_RExp
+      var newRow = theTable.insertRow(theTable.rows.length)
+      newRow.id = newRow.uniqueID
+
+      var item1 = 1
+      var newCell
+
+      //*** Column 1 ***//
+      newCell = newRow.insertCell(0)
+      newCell.id = newCell.uniqueID
+      newCell.setAttribute("className", "css-name");
+      newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"50\" NAME=\"P_R"+intLine+"\" VALUE=\""+text+"\">"
+      //***<input type="text" size = "10" name = "P_R1_"+intLine "value = "">     "<INPUT TYPE=\"TEXT\" SIZE=\"10\" NAME=\"P_R1_"+intLine+"\" VALUE=\"\">"***//
+
+
+      document.add_project_form.P_R.value = intLine;
+    }
+
+    function RemoveRow2()
+    {
+      intLine = parseInt(document.add_project_form.P_R.value);
+      if(parseInt(intLine) > 0)
+      {
+        theTable = (document.all) ? document.all.P_RExp :
+                document.getElementById("P_RExp")
+        theTableBody = theTable.tBodies[0];
+        theTableBody.deleteRow(intLine);
+        intLine--;
+        document.add_project_form.P_R.value = intLine;
+      }
+    }
+  </script>
+  <!-- ผู้เข้าร่วม3-->
+  <script type="text/javascript">
+    function CreateNewRow3(text)
+    {
+      var intLine = parseInt(document.add_project_form.P_M.value);
+      intLine++;
+
+      var theTable = document.all.P_MExp
+      var newRow = theTable.insertRow(theTable.rows.length)
+      newRow.id = newRow.uniqueID
+
+      var item1 = 1
+      var newCell
+
+      //*** Column 1 ***//
+      newCell = newRow.insertCell(0)
+      newCell.id = newCell.uniqueID
+      newCell.setAttribute("className", "css-name");
+      newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"50\" NAME=\"P_M"+intLine+"\" VALUE=\""+text+"\">"
+      //***<input type="text" size = "10" name = "P_M1_"+intLine "value = "">     "<INPUT TYPE=\"TEXT\" SIZE=\"10\" NAME=\"P_M1_"+intLine+"\" VALUE=\"\">"***//
+
+
+      document.add_project_form.P_M.value = intLine;
+    }
+
+    function RemoveRow3()
+    {
+      intLine = parseInt(document.add_project_form.P_M.value);
+      if(parseInt(intLine) > 0)
+      {
+        theTable = (document.all) ? document.all.P_MExp :
+                document.getElementById("P_MExp")
+        theTableBody = theTable.tBodies[0];
+        theTableBody.deleteRow(intLine);
+        intLine--;
+        document.add_project_form.P_M.value = intLine;
+      }
+    }
+  </script>
+  <!-- ตัวชี้วัดความสำเร็จของโครงการ5-->
+  <script type="text/javascript">
+    function CreateNewRow5()
+    {
+      var intLine = parseInt(document.add_project_form.S_P.value);
+      intLine++;
+
+      var theTable = document.all.S_PExp
+      var newRow = theTable.insertRow(theTable.rows.length)
+      newRow.id = newRow.uniqueID
+
+      var item1 = 1
+      var newCell
+
+      //*** Column 1 ***//
+      newCell = newRow.insertCell(0)
+      newCell.id = newCell.uniqueID
+      newCell.setAttribute("className", "css-name");
+      newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"50\" NAME=\"S_P1_"+intLine+"\" VALUE=\"\">"
+
+
+      document.add_project_form.S_P.value = intLine;
+    }
+
+    function RemoveRow5()
+    {
+      intLine = parseInt(document.add_project_form.S_P.value);
+      if(parseInt(intLine) > 0)
+      {
+        theTable = (document.all) ? document.all.S_PExp :
+                document.getElementById("S_PExp")
+        theTableBody = theTable.tBodies[0];
+        theTableBody.deleteRow(intLine);
+        intLine--;
+        document.add_project_form.S_P.value = intLine;
+      }
+    }
+  </script>
+  <!-- งบประมาณที่ใช้4-->
+  <script type="text/javascript">
+    function CreateNewRow4()
+    {
+      var intLine = parseInt(document.add_project_form.B_U.value);
+      intLine++;
+
+      var theTable = document.all.B_UExp
+      var newRow = theTable.insertRow(theTable.rows.length)
+      newRow.id = newRow.uniqueID
+
+      var item1 = 1
+      var newCell
+
+      //*** Column 1 ***//
+      newCell = newRow.insertCell(0)
+      newCell.id = newCell.uniqueID
+      newCell.setAttribute("className", "css-name");
+      newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"10\" NAME=\"B_U1_"+intLine+"\" VALUE=\"\">"
+
+      //*** Column 2 ***//
+      newCell = newRow.insertCell(1)
+      newCell.id = newCell.uniqueID
+      newCell.setAttribute("className", "css-name");
+      newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"30\" NAME=\"B_U2_"+intLine+"\" VALUE=\"\">"
+      //*** Column 3***//
+      newCell = newRow.insertCell(2)
+      newCell.id = newCell.uniqueID
+      newCell.setAttribute("className", "css-name");
+      newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"15\" NAME=\"B_U3_"+intLine+"\" VALUE=\"\">"
+
+      document.add_project_form.B_U.value = intLine;
+    }
+
+    function RemoveRow4()
+    {
+      intLine = parseInt(document.add_project_form.B_U.value);
+      if(parseInt(intLine) > 0)
+      {
+        theTable = (document.all) ? document.all.B_UExp :
+                document.getElementById("B_UExp")
+        theTableBody = theTable.tBodies[0];
+        theTableBody.deleteRow(intLine);
+        intLine--;
+        document.add_project_form.B_U.value = intLine;
+      }
+    }
+  </script>
+
+</head>
+
+<body id="page-top">
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand page-scroll" href="#page-top">ชื่อของผู้ใช้งาน</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+
+
+
+        <li>
+          <a class="page-scroll" href="#plus">    <big class="glyphicon glyphicon-plus"></big></a> <!--พิ่มโครงการ-->
+        </li>
+        <li>
+          <a class="page-scroll" href="#minus">    <big class="glyphicon glyphicon-minus"></big></a><!--ลบโครงการ-->
+        </li>
+        <li>
+          <a class="page-scroll" href="#money">    <big class="glyphicon glyphicon-usd"></big></a> <!--พิ่มโครงการ-->
+        </li>
+
+        <li>
+          <a class="page-scroll" href="#upload"> <big class="glyphicon glyphicon-picture"></big></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#equipment"><big class="glyphicon glyphicon-wrench"></big></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#log out"><b>LOG OUT</b></a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+  <form class="well form-horizontal" action=" " method="post"  name="add_project_form" id="add_project_form">
+    <fieldset>
+
+
+      <!-- Form Name -->
+      <legend>โครงการการแข่งขัน</legend>
+
+
+      <label align = 'center' class="col-md-3 control-label">ข้อมูลที่กรอก</label>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          60%
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-3 control-label">ชื่อโครงการ</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
+            <input  name="P_N" placeholder="" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label" >ปีการศึกษา</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <input name="Year" placeholder="" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">สถานที่</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+            <input name="Place" placeholder="" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">วันที่จัดกิจกรรม</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+            <input name="Date" placeholder="" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">หลักการและเหตุผล</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+            <textarea class="form-control" name="Reason_Project" placeholder=""></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">วัตถุประสงค์</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <input type="hidden" name="OJ" value="0">
+
+            <button name="btnAddOJ" type="button" id="btnAddOJ" class="btn btn-success" onClick="CreateNewRow0('');"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            <button name="btnDelOJ" type="button" id="btnDelOJ" class="btn btn-danger" onClick="RemoveRow0();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+
+            <table class="table table-striped"  id="OJExp">
+              <tr>
+                <script tal:repeat = "obj OJ_" >CreateNewRow0("${obj}");</script>
+
+
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">ประโยชน์ที่คาดว่าจะได้รับ</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <input type="hidden" name="Benefits" value="0">
+            <button name="btnAddBenefits" type="button" id="btnAddBenefits" class="btn btn-success" onClick="CreateNewRow1();"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            <button name="btnDelBenefits" type="button" id="btnDelBenefits" class="btn btn-danger" onClick="RemoveRow1();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+
+            <table class="table table-striped"  id="BenefitsExp">
+              <tr>
+
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label" >ผู้รับผิดชอบ</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <input type="hidden" name="P_R" value="0">
+
+            <button name="btnAddP_R" type="button" id="btnAddP_R" class="btn btn-success" onClick="CreateNewRow2('');"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            <button name="btnDelP_R" type="button" id="btnDelP_R" class="btn btn-danger" onClick="RemoveRow2();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+
+            <table class="table table-striped"  id="P_RExp">
+              <tr>
+                <script tal:repeat = "PR PR_" >CreateNewRow1("${PR}");</script>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">อาจารย์ที่ปรึกษา</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input name="Advisor" placeholder="" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">ผู้เข้าร่วมโครงการ</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <input type="hidden" name="P_M" value="0">
+
+            <button name="btnAddP_M" type="button" id="btnAddP_M" class="btn btn-success" onClick="CreateNewRow3('');"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            <button name="btnDelP_M" type="button" id="btnDelP_M" class="btn btn-danger" onClick="RemoveRow3();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+
+            <table class="table table-striped"  id="P_MExp">
+              <tr>
+                <script tal:repeat = "PM PM_" >CreateNewRow2("${PM}");</script>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">แผนการดำเนินการ</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+            <input name="S_A" placeholder="" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">สถานที่ดำเนินการ</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+            <input name="P_P" placeholder="" class="form-control"  type="text">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">ลักษณะกิจกรรม</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-cog"></i></span>
+            <textarea class="form-control" name="P_C" placeholder=""></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">งบประมาณที่ใช้</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <input type="hidden" name="B_U" value="0">
+            <button name="btnAddB_U" type="button" id="btnAddB_U" class="btn btn-success" onClick="CreateNewRow4();"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            <button name="btnDelB_U" type="button" id="btnDelB_U" class="btn btn-danger" onClick="RemoveRow4();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+
+            <table class="table table-striped"  id="B_UExp">
+              <tr>
+                <th><div align="center">ลำดับ</div></th>
+                <th><div align="center">รายละเอียด</div></th>
+                <th><div align="center">จำนวนเงิน(บาท)</div></th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">ตัวชี้วัดความสำเร็จของโครงการ</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <input type="hidden" name="S_P" value="0">
+            <button name="btnAddS_P" type="button" id="btnAddS_P" class="btn btn-success" onClick="CreateNewRow5();"><i class="glyphicon glyphicon-plus-sign"></i></button>
+            <button name="btnDelS_P" type="button" id="btnDelS_P" class="btn btn-danger" onClick="RemoveRow5();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+
+            <table class="table table-striped"  id="S_PExp">
+              <tr>
+
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">ยืมเงินหรือไม่</label>
+        <div class="col-md-5 inputGroupContainer">
+          <div class="input-group">
+            <input id="L_M" name="L_M" value="1" class="styled" type="checkbox">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-3 control-label">ไฟล์รายละเอียดการแข่งขัน</label>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">อัพโหลด <i class="glyphicon glyphicon-picture"></i></button>
+      </div>
+      <!-- Success message -->
+      <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-warning btn-lg" >บันทึก  <span class="glyphicon glyphicon-floppy-disk"></span></button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
+</div><!-- /.container -->
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+
+<script src="js/index.js"></script>
+
+
+
+</body>
+</html>
