@@ -393,7 +393,7 @@
   <div class="col-md-5 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-  <input  name="P_N" value = "${project_title}" class="form-control"  type="text" placeholder="Disabled input">
+  <input  name="P_N" value = "${project_title}" class="form-control"  type="text" placeholder="Disabled input" disabled>
     </div>
   </div>
 </div>

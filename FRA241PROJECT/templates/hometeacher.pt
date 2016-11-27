@@ -254,29 +254,28 @@
 <section id="money">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-lg-offset-0 text-center">
+            <div class="col-lg-4 col-lg-offset-0 text-center">
                 <h2 class="section-heading"><h1>ระบบการเงิน</h1></h2>
                 <hr class="primary">
                 <div class="">
                     <div class="service-box">
                         <button type="button" class="btn btn-primary btn-lg btn-block"><big class="glyphicon glyphicon-plus"></big> : กรอกแบบฟอร์ม</button><br>
-                        <p class="text-muted">เอกสารที่ไว้ใช้ในการขอยืมเงินและใบเสร็จที่ต้องนำไปส่งให้กับเจ้าหน้าที่</p>
+                        <p class="text-muted">เอกสารเพื่อใช้ในการขอยืมเงินและใบเสร็จที่ต้องนำไปส่งให้กับเจ้าหน้าที่</p>
                     </div>
                 </div>
             </div>
-
-           <!-- <div class="col-lg-0 col-lg-offset-8 text-center">
+            <div class="col-lg-0 col-lg-offset-8 text-center">
 
                 <h2 class="section-heading"><h1>การยืมคืนอุปกรณ์</h1></h2>
                 <hr class="primary">
                 <div class="">
                     <div class="service-box">
                         <button type="button" class="btn btn-primary btn-lg btn-block"><big class="glyphicon glyphicon-plus"></big> : กรอกแบบฟอร์มยืมคืน</button><br>
-                        <big class="glyphicon glyphicon-edit"></big>-->
+                        <!--<big class="glyphicon glyphicon-edit"></big>-->
 
-                     <!--  <p class="text-muted">กรอกเอกสารเพื่อใช้ในการยืมคืนอุปกรณ์และต้องนำไปส่งให้กับเจ้าหน้าที่และ ตรวจสอบlist อุปกรณ์ที่มีอยู่่</p>
+                        <p class="text-muted">กรอกเอกสารเพื่อใช้ในการยืมคืนอุปกรณ์และต้องนำไปส่งให้กับเจ้าหน้าที่และ ตรวจสอบlist อุปกรณ์ที่มีอยู่่</p>
                     </div>
-                </div>-->
+                </div>
 
 
 

@@ -35,6 +35,8 @@ class User(Base):
 
      own_euipment = relationship("Equipment", back_populates = "owner")
 
+     own_comment = relationship("Comment",back_populates = "writer")
+
      def hash_password(self,password):
          password_hash = bcrypt.hashpw(password.encode('utf8'), bcrypt.gensalt())
          self.password = password_hash
@@ -50,3 +52,7 @@ class User(Base):
      def change_password(self,password):
          self.hash_password(password)
 
+     def __enter__(self):
+        return self
+     def __exit__(self, exc_type, exc_val, exc_tb):
+         pass

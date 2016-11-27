@@ -30,6 +30,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style type="text/css">
+      body { background-color:#ff9900;  }
       h2 {font-size: 150%}
       <!--การเปรียบเทียบกิจกรรม-->
     </style>
@@ -297,24 +298,25 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li tal:condition = "role_teacher">
+          <a class="page-scroll" href="${request.route_url('teacherProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
+        </li>
 
+        <li tal:condition = "role_admin">
+          <a class="page-scroll" href="${request.route_url('adminProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
+        </li>
 
-
-        <!--li>
-            <a class="page-scroll" href="#plus">    <big class="glyphicon glyphicon-plus"></big></a> <!--เพิ่มโครงการ-->
-          <!--/li-->
-          <!--li>
-            <a class="page-scroll" href="#minus">    <big class="glyphicon glyphicon-minus"></big></a><!--ลบโครงการ-->
-          <!--/li-->
         <li>
           <a class="page-scroll" href="#status">    <big class="glyphicon glyphicon-globe"></big></a> <!--status-->
         </li>
+
         <li>
           <a class="page-scroll" href="#profile"> <big class="glyphicon glyphicon-user"></big></a><!--รprofile-->
         </li>
+
         <li>
-            <a class="page-scroll" href="${request.route_url('logout')}"><b>LOG OUT</b></a>
-          </li>
+          <a class="page-scroll" href="${request.route_url('logout')}">LOG OUT</a>
+        </li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
@@ -347,7 +349,7 @@
         <div class="col-md-5 inputGroupContainer">
           <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-            <input  name="P_N" value = "${project_title}" class="form-control"  type="text" placeholder="Disabled input">
+            <input  name="P_N" value = "${project_title}" class="form-control"  type="text" placeholder="Disabled input" disabled>
           </div>
         </div>
       </div>

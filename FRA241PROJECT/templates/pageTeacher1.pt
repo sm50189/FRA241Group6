@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-< lang="en">
+<html lang="en">
 <head>
-    <title>ระบบกิจกรรมนักศึกษา-รวจโครงการ</title>
+    <title>Title</title>
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
@@ -17,18 +17,18 @@
 
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/Home/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../static/Home/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
-    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="../static/Home/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/creative.min.css" rel="stylesheet">
+    <link href="../static/Home/css/creative.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,7 +37,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style type="text/css">
-        body { background-color:#ff9900;  }
         h2 {font-size: 150%}
     </style>
 
@@ -57,17 +56,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-
-                <li tal:condition = "role_teacher">
+                <li>
                     <a class="page-scroll" href="${request.route_url('teacherProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
                 </li>
-
-                <li tal:condition = "role_admin">
-                    <a class="page-scroll" href="${request.route_url('adminProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
-                </li>
-
                 <li>
-                    <a class="page-scroll" href="#status">    <big class="glyphicon glyphicon-globe"></big></a> <!--status-->
+                    <a class="page-scroll" href="#status"> <big class="glyphicon glyphicon-globe"></big></a>
                 </li>
 
                 <li>
@@ -77,7 +70,6 @@
                 <li>
                     <a class="page-scroll" href="${request.route_url('logout')}">LOG OUT</a>
                 </li>
-
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -96,17 +88,14 @@
 
         <div class="col-sm-6">
             <div class="form-box">
-                <form class="well form-horizontal" action=" " method="post" id="Check_Add1">
+                <form class="well form-horizontal" action=" " method="post" id="contact_form">
                     <fieldset>
-                        <h2 class="text-center"><b>โครงการรอการตรวจสอบ
-                            <span class="glyphicon glyphicon-bell" aria-hidden="true"></span></b></h2>
+                        <h2 class="text-center"><b>โครงการรอการตรวจสอบ  <span class="glyphicon glyphicon-bell" aria-hidden="true"></span></b></h2>
                         <div class="list-group">
-                            <div style="overflow-y:scroll;">
-                            <a tal:repeat = "uncheckPro uncheck_project" href="${request.route_url('inspectProject',project_id = str(uncheckPro.id))}" class="list-group-item">
-                                ${uncheckPro.title}
-                                <span class="pull-right text-muted small"><em>4 minutes ago</em></span>
+                            <a tal:repeat = "uncheckpro uncheck_project" href="${request.route_url('inspectProject',project_id = str(uncheckpro.id))}" class="list-group-item">
+                                ${uncheckpro.title}
+                                <span class="pull-right text-muted small"><em></em></span>
                             </a>
-                            </div>
                         </div>
                     </fieldset>
                 </form>
@@ -116,27 +105,15 @@
 
         <div class="col-sm-6">
             <div class="form-box">
-                <form class="well form-horizontal" action=" " method="post" id="Check_Add2">
+                <form class="well form-horizontal" action=" " method="post" id="contact_form">
                     <fieldset>
-                        <form action="action_page.php">
-                        <h2 class="text-center"><b>โครงการผ่านการตรวจสอบ
-                            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></b></h2>
+                        <h2 class="text-center"><b>โครงการผ่านการตรวจสอบ  <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></b></h2>
                         <div class="list-group">
-                            <div style="overflow-y:scroll;">
-
-                            <a tal:repeat = "checkedPro checked_project" href="${request.route_url('inspectProject',project_id = str(checkedPro.id))}" class="list-group-item">
-                                <div class="checkbox">
-                                    <label>
-                                        <?python is_checked = True if checkedPro.status.split(unichr(171))[2]=="T" else False ?>
-                                        <input type="checkbox" name="${checkedPro.id}" value="${checkedPro.id}" tal:attributes="checked is_checked | nothing">
-                                        ${checkedPro.title}
-                                    </label>
-                                </div>
+                            <a tal:repeat = "checkpro checked_project" href="${request.route_url('inspectProject',project_id = str(checkpro.id))}" class="list-group-item">
+                                ${checkpro.title}
+                                <span class="pull-right text-muted small"><em></em></span>
                             </a>
-                            </div>
-                            </div>
-                            <input type="submit" name="x" value="เพิ่มไปยังโครงการที่น่าสนใจ">
-                        </form>
+                        </div>
                     </fieldset>
                 </form>
             </div>
@@ -145,7 +122,5 @@
 </div>
 
 
-
-
 <!--/body-->
-<!--/html-->
+</html>

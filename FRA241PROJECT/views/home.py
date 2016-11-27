@@ -7,13 +7,11 @@ from ..models import User
 
 
 
-@view_config(route_name = 'home', renderer = '../templates/indexby92.pt')
+@view_config(route_name = 'home', renderer = '../templates/hometeacher.pt')
 def home(request):
     if request.user is None:
         return HTTPFound(location=request.route_url('login'))
-
     user = request.user
-
     return dict(user= user)
 
 @view_config(route_name = 'test')

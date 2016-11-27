@@ -17,7 +17,6 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-
   <!-- Bootstrap Core CSS -->
   <link href="${request.static_url('FRA241PROJECT:static/index/vendor/bootstrap/css/bootstrap.min.css')}" rel="stylesheet">
 
@@ -39,6 +38,7 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
   <style type="text/css">
+    body { background-color:#ff9900;  }
     h2 {font-size: 150%}
   </style>
   <!-- library of header-->
@@ -88,27 +88,24 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li tal:condition = "role_teacher">
+          <a class="page-scroll" href="${request.route_url('teacherProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
+        </li>
 
-
-
-        <!--li>
-          <a class="page-scroll" href="#plus">    <big class="glyphicon glyphicon-plus"></big></a> <!--พิ่มโครงการ-->
-        <!--/li-->
-        <!--li>
-          <a class="page-scroll" href="#minus">    <big class="glyphicon glyphicon-minus"></big></a><!--ลบโครงการ-->
-        <!--/li-->
-        <li>
-          <a class="page-scroll" href="#money">    <big class="glyphicon glyphicon-usd"></big></a> <!--พิ่มโครงการ-->
+        <li tal:condition = "role_admin">
+          <a class="page-scroll" href="${request.route_url('adminProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
         </li>
 
         <li>
-          <a class="page-scroll" href="#upload"> <big class="glyphicon glyphicon-picture"></big></a>
+          <a class="page-scroll" href="#status">    <big class="glyphicon glyphicon-globe"></big></a> <!--status-->
         </li>
+
         <li>
-          <a class="page-scroll" href="#equipment"><big class="glyphicon glyphicon-wrench"></big></a>
+          <a class="page-scroll" href="#profile"> <big class="glyphicon glyphicon-user"></big></a><!--รprofile-->
         </li>
+
         <li>
-          <a class="page-scroll" href="${request.route_url('logout')}"><b>LOG OUT</b></a>
+          <a class="page-scroll" href="${request.route_url('logout')}">LOG OUT</a>
         </li>
       </ul>
     </div>
@@ -151,7 +148,7 @@
       </div>
       <div class="form-group">
 
-        <button type="submit" name = "competitive-button" class="btn btn-info btn-lg btn-block"><h1>โครงการการแข่งขัน</h1></button>
+        <button type="submit" name = "competitive-button" class="btn btn-warning btn-lg btn-block"><h1>โครงการการแข่งขัน</h1></button>
 
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
@@ -163,7 +160,7 @@
       </div>
       <div class="form-group">
 
-        <button type="submit" name = "camp-button" class="btn btn-success btn-lg btn-block"><h1>โครงการค่าย</h1></button>
+        <button type="submit" name = "camp-button" class="btn btn-danger btn-lg btn-block"><h1>โครงการค่าย</h1></button>
 
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
@@ -196,7 +193,7 @@
         <div>
           <div class="form-group">
 
-            <button type="submit" name = "cancel" class="btn btn-success btn-lg btn-block"><h1>ยกเลิก</h1></button>
+            <button type="submit" name = "cancel" class="btn btn-danger btn-lg btn-block"><h1>ยกเลิก</h1></button>
 
             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
               <div class="modal-dialog modal-lg" role="document">

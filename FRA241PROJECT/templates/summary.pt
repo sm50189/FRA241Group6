@@ -33,8 +33,9 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style type="text/css">
-        body { background-color:#ff9900;  }
-        h2 {  font-size: 150%  }
+        h2 {
+            font-size: 150%
+        }
     </style>
 
     <!-- ผู้รับผิดชอบ1-->
@@ -298,24 +299,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li tal:condition = "role_teacher">
-                    <a class="page-scroll" href="${request.route_url('teacherProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
-                </li>
 
-                <li tal:condition = "role_admin">
-                    <a class="page-scroll" href="${request.route_url('adminProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
-                </li>
+
 
                 <li>
                     <a class="page-scroll" href="#status">    <big class="glyphicon glyphicon-globe"></big></a> <!--status-->
                 </li>
+
 
                 <li>
                     <a class="page-scroll" href="#profile"> <big class="glyphicon glyphicon-user"></big></a><!--รprofile-->
                 </li>
 
                 <li>
-                    <a class="page-scroll" href="${request.route_url('logout')}">LOG OUT</a>
+                    <a class="page-scroll" href="#log out">LOG OUT</a>
                 </li>
             </ul>
         </div>
