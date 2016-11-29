@@ -10,12 +10,18 @@ from  ..models.Summary import Summary
 
 @view_config(route_name = 'select_project_summarize',renderer = '../templates/summary.pt')
 def select_projct(request):
-    project_list = request.user.own_project
+    if request.user.role == "Admin":
+        project_list = request.db_session.query(Project)
+    else:
+        project_list = request.user.own_project+request.user.advisee_project
     return dict(project_list = project_list)
 
 @view_config(route_name = 'summarize', renderer = '../templates/summary.pt')
 def summary_project(request):
-    project_list = request.user.own_project
+    if request.user.role == "Admin":
+        project_list = request.db_session.query(Project)
+    else:
+        project_list = request.user.own_project+request.user.advisee_project
     project = request.context.project
     summary = project.summary
     count_owner = 1

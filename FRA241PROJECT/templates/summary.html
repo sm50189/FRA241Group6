@@ -292,7 +292,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="${request.route_url('home')}">${request.user.user_id}</a>
+            <a class="navbar-brand page-scroll" href="${request.route_url('home')}">${request.user.First_name}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -358,6 +358,8 @@
             </div>
             <?python is_selected = True if "project_id" in request.matchdict else False?>
             <div tal:condition = "is_selected">
+                <?python is_not_own = True if summary.parent_project.owner_id != request.user.id else False ?>
+                <?python is_own = False if is_not_own == True else True ?>
                 <div class="form-group">
                     <label class="col-md-3 control-label">ผู้รับผิดชอบ</label>
                     <div class="col-md-5 inputGroupContainer">
@@ -365,9 +367,9 @@
                             <input type="hidden" name="SF1" value="0">
 
                             <button name="btnAddSF1" type="button" id="btnAddSF1" class="btn btn-success"
-                                    onClick="CreateNewRow1('');"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                                    onClick="CreateNewRow1('');"><i class="glyphicon glyphicon-plus-sign" tal:condition="is_own"></i></button>
                             <button name="btnDelSF1" type="button" id="btnDelSF1" class="btn btn-danger"
-                                    onClick="RemoveRow1();"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                                    onClick="RemoveRow1();" tal:condition="is_own"><i class="glyphicon glyphicon-minus-sign"></i></button>
 
                             <table class="table table-striped" id="SF1Exp">
                                 <tr>
@@ -386,9 +388,9 @@
                             <input type="hidden" name="SF2" value="0">
 
                             <button name="btnAddSF2" type="button" id="btnAddSF2" class="btn btn-success"
-                                    onClick="CreateNewRow2('');"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                                    onClick="CreateNewRow2('');" tal:condition="is_own"><i class="glyphicon glyphicon-plus-sign"></i></button>
                             <button name="btnDelSF2" type="button" id="btnDelSF2" class="btn btn-danger"
-                                    onClick="RemoveRow2();"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                                    onClick="RemoveRow2();" tal:condition="is_own"><i class="glyphicon glyphicon-minus-sign"></i></button>
 
                             <table class="table table-striped" id="SF2Exp">
                                 <tr>
@@ -406,7 +408,7 @@
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                            <textarea name="SF3" class="form-control">${summary.Reason}</textarea>
+                            <textarea name="SF3" class="form-control" tal:attributes="readonly is_not_own|nothing">${summary.Reason}</textarea>
                         </div>
                     </div>
                 </div>
@@ -416,8 +418,8 @@
                         <div class="input-group">
                             <input type="hidden" name="SF4" value="0">
 
-                            <button name="btnAddSF4" type="button" id="btnAddSF4" class="btn btn-success" onClick="CreateNewRow4('');"><i class="glyphicon glyphicon-plus-sign"></i></button>
-                            <button name="btnDelSF4" type="button" id="btnDelSF4" class="btn btn-danger" onClick="RemoveRow4();"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                            <button name="btnAddSF4" type="button" id="btnAddSF4" class="btn btn-success" onClick="CreateNewRow4('');" tal:condition="is_own"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                            <button name="btnDelSF4" type="button" id="btnDelSF4" class="btn btn-danger" onClick="RemoveRow4();" tal:condition="is_own"><i class="glyphicon glyphicon-minus-sign"></i></button>
 
                             <table class="table table-striped" id="SF4Exp">
                                 <tr>
@@ -434,8 +436,8 @@
                         <div class="input-group">
                             <input type="hidden" name="SF5" value="0">
 
-                            <button name="btnAddSF5" type="button" id="btnAddSF5" class="btn btn-success" onClick="CreateNewRow5(1,'หนังสือ',3);"><i class="glyphicon glyphicon-plus-sign"></i></button>
-                            <button name="btnDelSF5" type="button" id="btnDelSF5" class="btn btn-danger" onClick="RemoveRow5();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+                            <button name="btnAddSF5" type="button" id="btnAddSF5" class="btn btn-success" onClick="CreateNewRow5(1,'หนังสือ',3);" tal:condition="is_own"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                            <button name="btnDelSF5" type="button" id="btnDelSF5" class="btn btn-danger" onClick="RemoveRow5();" tal:condition="is_own"><i class="glyphicon glyphicon-minus-sign"></i> </button>
 
                             <table class="table table-striped"  id="SF5Exp">
                                 <tr>
@@ -456,9 +458,9 @@
                             <input type="hidden" name="SF6" value="0">
 
                             <button name="btnAddSF6" type="button" id="btnAddSF6" class="btn btn-success"
-                                    onClick="CreateNewRow6('');"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                                    onClick="CreateNewRow6('');" tal:condition="is_own"><i class="glyphicon glyphicon-plus-sign"></i></button>
                             <button name="btnDelSF6" type="button" id="btnDelSF6" class="btn btn-danger"
-                                    onClick="RemoveRow6();"><i class="glyphicon glyphicon-minus-sign"></i></button>
+                                    onClick="RemoveRow6();" tal:condition="is_own"><i class="glyphicon glyphicon-minus-sign"></i></button>
 
                             <table class="table table-striped" id="SF6Exp">
                                 <tr>
@@ -477,8 +479,8 @@
                         <div class="input-group">
                             <input type="hidden" name="SF7" value="0">
 
-                            <button name="btnAddSF7" type="button" id="btnAddSF7" class="btn btn-success" onClick="CreateNewRow7(1,'หนังสือ',3);"><i class="glyphicon glyphicon-plus-sign"></i></button>
-                            <button name="btnDelSF7" type="button" id="btnDelSF7" class="btn btn-danger" onClick="RemoveRow7();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+                            <button name="btnAddSF7" type="button" id="btnAddSF7" class="btn btn-success" onClick="CreateNewRow7(1,'หนังสือ',3);" tal:condition="is_own"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                            <button name="btnDelSF7" type="button" id="btnDelSF7" class="btn btn-danger" onClick="RemoveRow7();" tal:condition="is_own"><i class="glyphicon glyphicon-minus-sign"></i> </button>
 
                             <table class="table table-striped"  id="SF7Exp">
                                 <tr>
@@ -497,7 +499,7 @@
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                            <textarea name="SF8" class="form-control">${summary.location}</textarea>
+                            <textarea name="SF8" class="form-control" tal:attributes="readonly is_not_own|nothing">${summary.location}</textarea>
                         </div>
                     </div>
                 </div>
@@ -506,7 +508,7 @@
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                            <textarea name="SF9" class="form-control">${summary.problem}</textarea>
+                            <textarea name="SF9" class="form-control" tal:attributes="readonly is_not_own|nothing">${summary.problem}</textarea>
                         </div>
                     </div>
                 </div>
@@ -515,7 +517,7 @@
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                            <textarea name="SF10" class="form-control">${summary.suggest}</textarea>
+                            <textarea name="SF10" class="form-control" tal:attributes="readonly is_not_own|nothing">${summary.suggest}</textarea>
                         </div>
                     </div>
                 </div>
@@ -524,7 +526,7 @@
                     <div class="col-md-5 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-list-alt"></i></span>
-                            <textarea name="SF11" class="form-control">${summary.criteria}</textarea>
+                            <textarea name="SF11" class="form-control" tal:attributes="readonly is_not_own|nothing">${summary.criteria}</textarea>
                         </div>
                     </div>
                 </div>

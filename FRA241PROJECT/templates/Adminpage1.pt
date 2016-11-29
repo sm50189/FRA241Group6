@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 < lang="en">
 <head>
-    <title>ระบบกิจกรรมนักศึกษา-รวจโครงการ</title>
+    <title>ระบบกิจกรรมนักศึกษา-ตรวจโครงการ</title>
     <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
@@ -17,6 +17,7 @@
 
 
     <!-- Bootstrap Core CSS -->
+    <link rel="shortcut icon" href="${request.static_url('FRA241PROJECT:static/assets/ico/FIBO2.jpg')}">
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
@@ -106,7 +107,7 @@
                             <div style="overflow-y:scroll;">
                             <a tal:repeat = "uncheckPro uncheck_project" href="${request.route_url('inspectProject',project_id = str(uncheckPro.id))}" class="list-group-item">
                                 ${uncheckPro.title}
-                                <span class="pull-right text-muted small"><em>4 minutes ago</em></span>
+                                <span class="pull-right text-muted small">once upon a time<em></em></span>
                             </a>
                             </div>
                         </div>
@@ -127,7 +128,7 @@
                             <a tal:repeat = "checkedPro checked_project" href="${request.route_url('inspectProject',project_id = str(checkedPro.id))}" class="list-group-item">
                                 <div class="checkbox">
                                     <label>
-                                        <?python is_checked = True if checkedPro.status.split(unichr(171))[2]=="T" else False ?>
+                                        <?python is_checked = True if checkedPro.is_recommend=="T" else False ?>
                                         <input type="checkbox" name="${checkedPro.id}" value="${checkedPro.id}" tal:attributes="checked is_checked | nothing">
                                         ${checkedPro.title}
                                     </label>

@@ -52,19 +52,37 @@
             newCell = newRow.insertCell(0)
             newCell.id = newCell.uniqueID
             newCell.setAttribute("className", "css-name");
-            newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"15\" NAME=\"D_B1_"+intLine+"\" VALUE=\""+equipment+"\">"
+            if (Diabled == "T"){
+                newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"15\" NAME=\"D_B1_"+intLine+"\" VALUE=\""+equipment+"\">"
+            }
+            else {
+                newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"15\" NAME=\"D_B1_"+intLine+"\" VALUE=\""+equipment+"\" READONLY=\"READONLY\">"
+            }
+            //newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"15\" NAME=\"D_B1_"+intLine+"\" VALUE=\""+equipment+"\">"
             //***<input type="text" size = "10" name = "D_B1_"+intLine "value = ""> ***//
 
             //*** Column 2 ***//
             newCell = newRow.insertCell(1)
             newCell.id = newCell.uniqueID
             newCell.setAttribute("className", "css-name");
-            newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"10\" NAME=\"D_B2_"+intLine+"\" VALUE=\""+cost+"\">"
+            if (Diabled == "T"){
+                newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"10\" NAME=\"D_B2_"+intLine+"\" VALUE=\""+cost+"\">"
+            }
+            else{
+                newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"10\" NAME=\"D_B2_"+intLine+"\" VALUE=\""+cost+"\" READONLY=\"READONLY\">"
+            }
+            //newCell.innerHTML = "<INPUT TYPE=\"TEXT\" SIZE=\"10\" NAME=\"D_B2_"+intLine+"\" VALUE=\""+cost+"\">"
             //*** Column 3***//
             newCell = newRow.insertCell(2)
             newCell.id = newCell.uniqueID
             newCell.setAttribute("className", "css-name");
-            newCell.innerHTML = " upload:<INPUT TYPE=\"FILE\" NAME=\"D_B3_"+intLine+"\" VALUE=\"\">"
+            if (Diabled == "T"){
+               newCell.innerHTML = " upload:<INPUT TYPE=\"FILE\" NAME=\"D_B3_"+intLine+"\" VALUE=\"\">"
+            }
+            else{
+                newCell.innerHTML = " upload:<INPUT TYPE=\"FILE\" NAME=\"D_B3_"+intLine+"\" VALUE=\"\" READONLY=\"READONLY\">"
+            }
+            //newCell.innerHTML = " upload:<INPUT TYPE=\"FILE\" NAME=\"D_B3_"+intLine+"\" VALUE=\"\">"
 
             //*** Column 4***//
             newCell = newRow.insertCell(3)
@@ -117,7 +135,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="${request.route_url('home')}">${request.user.user_id}</a>
+            <a class="navbar-brand page-scroll" href="${request.route_url('home')}">${request.user.First_name}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -194,8 +212,9 @@
                         <div class="input-group">
                             <input type="hidden" name="D_B" value="0">
                             <?python diabled = "T" if request.user.role!= "Admin" else "F" ?>
-                            <button name="btnAddD_B" type="button" id="btnAddD_B" class="btn btn-success" onClick="CreateNewRow4('','','','','F','${diabled}');"><i class="glyphicon glyphicon-plus-sign"></i></button>
-                            <button name="btnDelD_B" type="button" id="btnDelD_B" class="btn btn-danger" onClick="RemoveRow4();"><i class="glyphicon glyphicon-minus-sign"></i> </button>
+                            <?python have_button = True if request.user.role!= "Admin" else False ?>
+                            <button name="btnAddD_B" type="button" id="btnAddD_B" class="btn btn-success" onClick="CreateNewRow4('','','','','F','${diabled}');" tal:condition = "have_button"><i class="glyphicon glyphicon-plus-sign"></i></button>
+                            <button name="btnDelD_B" type="button" id="btnDelD_B" class="btn btn-danger" onClick="RemoveRow4();" tal:condition = "have_button"><i class="glyphicon glyphicon-minus-sign"></i> </button>
 
                             <table class="table table-condensed"  id="D_BExp" >
                                 <tr>

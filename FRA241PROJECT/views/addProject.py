@@ -122,155 +122,6 @@ class Project_view():
             list_DB = proposal.delicate_budget
             list_schedule = proposal.schedule
             is_exist = True
-
-        # # if self.request.params.get("OJ","0") == "0":list_OJ = ''
-        # # if self.request.params.get("P_R","0") == "0":list_PR = ''
-        # # if self.request.params.get("P_M","0") == "0":list_PM = ''
-        # # if self.request.params.get("BGT","0") == "0":list_BGT = ''
-        # # if self.request.params.get("D_B","0") == "0":list_DB = ''
-        # # if self.request.params.get("schedule","0") == "0":list_schedule = ''
-        #
-        # if self.request.params.get("P_N",""):
-        #     project_title = self.request.params["P_N"]
-        #
-        # if self.request.params.get("Year",""):
-        #     project_year = self.request.params["Year"]
-        #
-        # if self.request.params.get("Date-start",""):
-        #     raw_date_start = self.request.params["Date-start"]
-        #     if "/" not in raw_date_start:
-        #         raw_date_start = 'Invalid format'
-        #     split_date = raw_date_start.split("/")
-        #     if len(split_date) != 3:
-        #         raw_date_start = 'Invalid format'
-        #     for i in split_date:
-        #         if i.isdigit() == False:
-        #             raw_date_start = 'Invalid format'
-        #             break
-        #
-        #     if raw_date_start != 'Invalid format':
-        #         start_date = datetime.date(int(split_date[2]),int(split_date[1]),int(split_date[0]))
-        #
-        #     else:
-        #         start_date = ''
-        #
-        # if self.request.params.get("Date-finish",""):
-        #     raw_date_finish = self.request.params["Date-finish"]
-        #     if "/" not in raw_date_finish:
-        #         raw_date_finish = 'Invalid format'
-        #     split_finish_date = raw_date_finish.split("/")
-        #     if len(split_finish_date) != 3:
-        #         raw_date_finish = 'Invalid format'
-        #     for i in split_finish_date:
-        #         if i.isdigit() == False:
-        #             raw_date_finish = 'Invalid format'
-        #             break
-        #
-        #     if raw_date_finish != 'Invalid format':
-        #         finish_date = datetime.date(int(split_finish_date[2]), int(split_finish_date[1]), int(split_finish_date[0]))
-        #
-        #     else:
-        #         finish_date = ''
-        #
-        # if self.request.params.get("P_P","")!="":
-        #     project_activity_location = self.request.params["P_P"]
-        #
-        # if self.request.params.get("Reason_Project","") != "":
-        #     project_reason = self.request.params["Reason_Project"]
-        #
-        # count_OJ = 1
-        # if "OJ1" in self.request.params:
-        #     list_OJ = ''
-        #     while True:
-        #         print "\n\nfucking loop\n\n"
-        #         name_inParam = "OJ"+str(count_OJ)
-        #         if name_inParam in self.request.params:
-        #             list_OJ += self.request.params[name_inParam]+unichr(171)
-        #         else:
-        #             break
-        #         count_OJ+=1
-        # if "myradio" in self.request.params:
-        #     print "\n\n\n\nHave myradio\n\n\n\n\n\n"
-        #     if self.request.params["myradio"] == "2":
-        #         project_Calibration = u"กิจกรรมที่ไม่นับหน่วยชั่วโมง,"
-        #     elif self.request.params["myradio"] == "1":
-        #         project_Calibration = u"กิจกรรมเลือกเข้าร่วม,"
-        #         if self.request.params.get("checkbox1","") != "":
-        #             project_Calibration += u"ด้านพัฒนาทักษะทางวิชาการและวิชาชีพ:"+self.request.params.get("CB1",'')+","
-        #         if self.request.params.get("checkbox2","") != "":
-        #             project_Calibration += u"ด้านกีฬาและการส่งเสริมสุขภาพ:"+self.request.params.get("CB2",'')+","
-        #         if self.request.params.get("checkbox3","") != "":
-        #             project_Calibration += u"ด้านบำเพ็ญประโยชน์และรักษาสิ่งแวดล้อม:"+self.request.params.get("CB3","")+","
-        #         if self.request.params.get("checkbox4","") != "":
-        #             project_Calibration += u"ด้านทำนุบำรุงศิลปะและวัฒนธรรม:"+self.request.params.get("CB4","")+","
-        #         if self.request.params.get("checkbox5","") != "":
-        #             project_Calibration += u"ด้านนันทนาการและการพัฒนาบุคลิกภาพ:"+self.request.params.get("CB5","")+","
-        #         if self.request.params.get("checkbox6","") != "" :
-        #             project_Calibration += u"ด้านความภูมิใจ ความรัก ความผูกพันธ์มหาวิทยาลัย:"+self.request.params.get("CB6","")+","
-        # dict_type = {u"ด้านพัฒนาทักษะทางวิชาการและวิชาชีพ":1,u"ด้านกีฬาและการส่งเสริมสุขภาพ":2,u"ด้านบำเพ็ญประโยชน์และรักษาสิ่งแวดล้อม":3,u"ด้านทำนุบำรุงศิลปะและวัฒนธรรม":4,u"ด้านนันทนาการและการพัฒนาบุคลิกภาพ":5,u"ด้านความภูมิใจ ความรัก ความผูกพันธ์มหาวิทยาลัย":6}
-        # count_P_R = 1
-        # if "P_R1" in self.request.params:
-        #     list_PR = ''
-        #     while True:
-        #         name_PR_inParam = "P_R"+str(count_P_R)
-        #         if name_PR_inParam in self.request.params:
-        #             list_PR += self.request.params[name_PR_inParam]+unichr(171)
-        #         else:
-        #             break
-        #         count_P_R+=1
-        # if self.request.params.get("Duration","") != "":
-        #     project_duration = self.request.params["Duration"]
-        #
-        # count_P_M = 1
-        # if "P_M1" in self.request.params:
-        #     list_PM = ''
-        #     while True:
-        #         name_PM_inParam = "P_M"+str(count_P_M)
-        #         if name_PM_inParam in self.request.params:
-        #            list_PM += self.request.params[name_PM_inParam]+unichr(171)
-        #         else:
-        #             break
-        #         count_P_M+=1
-        # if self.request.params.get("evaluation","")!= "":
-        #     project_evaluation = self.request.params["evaluation"]
-        #
-        # if "Benefits" in self.request.params:
-        #     project_profit = self.request.params["Benefits"]
-        #
-        # count_BGT = 1
-        # if "BGT1" in self.request.params:
-        #     list_BGT = ''
-        #     while True:
-        #         name_BGT_inParam = "BGT"+str(count_BGT)
-        #         if name_BGT_inParam in self.request.params:
-        #             list_BGT += self.request.params[name_BGT_inParam]+unichr(171)
-        #         else:
-        #             break
-        #         count_BGT+=1
-        # count_DB = 1
-        # if "D_B1_1" in self.request.params:
-        #     list_DB = ''
-        #     while True:
-        #         name_DB1_inParam = "D_B1_"+str(count_DB)
-        #         name_DB2_inParam = "D_B2_"+str(count_DB)
-        #         name_DB3_inParam = "D_B3_"+str(count_DB)
-        #         if name_DB1_inParam in self.request.params and name_DB2_inParam in self.request.params and name_DB3_inParam in self.request.params:
-        #             list_DB += self.request.params[name_DB1_inParam]+unichr(172)+self.request.params[name_DB2_inParam]+unichr(172)+self.request.params[name_DB3_inParam]+unichr(171)
-        #         else:
-        #             break
-        #         count_DB+=1
-        # count_schedule = 1
-        # if "schedule1_1" in self.request.params:
-        #     print "\n\n\n\n\nin this fucking condition\n\n\n\n\n"
-        #     list_schedule = ''
-        #     while True:
-        #         name_schedule1_inParam = "schedule1_"+str(count_schedule)
-        #         name_schedule2_inParam = "schedule2_" + str(count_schedule)
-        #         if name_schedule1_inParam in self.request.params and name_schedule1_inParam in self.request.params:
-        #             list_schedule+=self.request.params[name_schedule1_inParam]+unichr(172)+self.request.params[name_schedule2_inParam]+unichr(171)
-        #         else:
-        #             break
-        #         count_schedule+=1
         if "save_proposal" in self.request.params:
             if self.request.params.get("OJ","0") == "0":list_OJ = ''
             if self.request.params.get("P_R","0") == "0":list_PR = ''
@@ -450,6 +301,11 @@ class Project_view():
                 with transaction.manager:
                     proposal = self.request.db_session.query(Proposal).filter_by(parent_id=self.request.matchdict["project_id"]).first()
                     project = self.request.db_session.query(Project).filter_by(id=self.request.matchdict["project_id"]).first()
+                    member = project.project_member
+                    for i in member:
+                        text = i.First_name + "\t" + i.Last_name + "\t" + str(i.student_id) + unichr(171)
+                        if text not in list_PM.split(unichr(171)) :
+                            list_PM += text
                     proposal.year = project_year
                     proposal.activity_location = project_activity_location
                     proposal.Reason = project_reason
@@ -475,6 +331,7 @@ class Project_view():
                         status = project.status.split(unichr(171))
                         status[0] = status[1] = 'F'
                         project.status = unichr(171).join(status)
+
         start_date_for_return = start_date
         finish_date_for_return = finish_date
         dict2return =  dict(project_title=project_title,
@@ -542,120 +399,6 @@ class Project_view():
             list_PM = proposal.member_for_proposal
             list_DB = proposal.delicate_budget
             is_exist = True
-
-        # if self.request.params.get("OJ","0") == "0":list_OJ = ''
-        # if self.request.params.get("P_R","0") == "0":list_PR = ''
-        # if self.request.params.get("P_M","0") == "0":list_PM = ''
-        # if self.request.params.get("S_P","0") == "0":project_criteria = ''
-        # if self.request.params.get("Benefits","0") == "0":project_Bene = ''
-        # if self.request.params.get("D_B","0") == "0":list_DB = ''
-        #
-        # if "Year" in self.request.params:
-        #     project_year = self.request.params.get("Year",'')
-        #
-        # if "Place" in self.request.params:
-        #     project_place = self.request.params.get("Place",'')
-        #
-        # if "Date" in self.request.params:
-        #     raw_date_start = self.request.params["Date"]
-        #     if "/" not in raw_date_start:
-        #         raw_date_start = 'Invalid format'
-        #     split_start_date = raw_date_start.split("/")
-        #     if len(split_start_date) != 3:
-        #         raw_date_start = 'Invalid format'
-        #     for i in split_start_date:
-        #         if i.isdigit() == False:
-        #             raw_date_start = 'Invalid format'
-        #             break
-        #
-        #     if raw_date_start != 'Invalid format':
-        #         start_date = datetime.date(int(split_start_date[2]), int(split_start_date[1]), int(split_start_date[0]))
-        #
-        #     else:
-        #         start_date = ''
-        #
-        # if "Reason_Project" in self.request.params:
-        #     project_reason = self.request.params.get('Reason_Project',"")
-        #
-        # count_OJ = 1
-        # if "OJ1" in self.request.params:
-        #     list_OJ = ''
-        # while True:
-        #     print "\n\nfucking loop\n\n"
-        #     name_inParam = "OJ"+str(count_OJ)
-        #     if name_inParam in self.request.params:
-        #         list_OJ += self.request.params[name_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_OJ+=1
-        #
-        # count_Bene = 1
-        # if "Benefits1_1" in self.request.params:
-        #     project_Bene = ''
-        # while True:
-        #     print "\n\nfucking loop\n\n"
-        #     name_inParam = "Benefits1_"+str(count_Bene)
-        #     if name_inParam in self.request.params:
-        #         project_Bene += self.request.params[name_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_Bene+=1
-        #
-        # count_P_R = 1
-        # if "P_R1" in self.request.params:
-        #     list_PR = ''
-        # while True:
-        #     name_PR_inParam = "P_R"+str(count_P_R)
-        #     if name_PR_inParam in self.request.params:
-        #         list_PR += self.request.params[name_PR_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_P_R+=1
-        #
-        # if "Advisor_F" in self.request.params or "Advisor_L" in self.request.params or "Advisor_MR" in self.request.params:
-        #     project_advisor = self.request.params.get("Advisor_MR",'')+unichr(172)+self.request.params.get("Advisor_F",'')+unichr(172)+self.request.params.get("Advisor_L",'')
-        #
-        # count_P_M = 1
-        # if "P_M1" in self.request.params:
-        #     list_PM = ''
-        # while True:
-        #     name_PM_inParam = "P_M"+str(count_P_M)
-        #     if name_PM_inParam in self.request.params:
-        #         list_PM += self.request.params[name_PM_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_P_M+=1
-        #
-        # if "P_P" in self.request.params:
-        #     project_activity_location = self.request.params.get("P_P",'')
-        #
-        # if "P_C" in self.request.params:
-        #     project_activity_type = self.request.params["P_C"]
-        #
-        # count_DB = 1
-        # if "D_B1_1" in self.request.params:
-        #     list_DB = ''
-        # while True:
-        #     name_DB1_inParam = "D_B1_"+str(count_DB)
-        #     name_DB2_inParam = "D_B2_"+str(count_DB)
-        #     name_DB3_inParam = "D_B3_"+str(count_DB)
-        #     if name_DB1_inParam in self.request.params and name_DB2_inParam in self.request.params and name_DB3_inParam in self.request.params:
-        #         list_DB += self.request.params[name_DB1_inParam]+unichr(172)+self.request.params[name_DB2_inParam]+unichr(172)+self.request.params[name_DB3_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_DB+=1
-        #
-        # count_criteria = 1
-        # if "S_P1_1" in self.request.params:
-        #     project_criteria = ''
-        # while True:
-        #     print "\n\nfucking loop\n\n"
-        #     name_inParam = "S_P1_"+str(count_criteria)
-        #     if name_inParam in self.request.params:
-        #         project_criteria += self.request.params[name_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_criteria+=1
 
         if "save_proposal" in self.request.params:
             if self.request.params.get("OJ", "0") == "0": list_OJ = ''
@@ -799,6 +542,11 @@ class Project_view():
                 with transaction.manager:
                     proposal = self.request.db_session.query(Proposal).filter_by(parent_id=self.request.matchdict["project_id"]).first()
                     project = self.request.db_session.query(Project).filter_by(id=self.request.matchdict["project_id"]).first()
+                    member = project.project_member
+                    for i in member:
+                        text = i.First_name + "\t" + i.Last_name + "\t" + str(i.student_id) + unichr(171)
+                        if text not in list_PM.split(unichr(171)):
+                            list_PM += text
                     proposal.year = project_year
                     proposal.location = project_place
                     proposal.activity_location=project_activity_location
@@ -884,143 +632,6 @@ class Project_view():
             list_DB = proposal.delicate_budget
             list_schedule = proposal.schedule
             is_exist = True
-
-        # if self.request.params.get("OJ","0") == "0":list_OJ = ''
-        # if self.request.params.get("P_R","0") == "0":list_PR = ''
-        # if self.request.params.get("P_M","0") == "0":list_PM = ''
-        # if self.request.params.get("S_P","0") == "0":project_criteria = ''
-        # if self.request.params.get("Benefits","0") == "0":project_Bene = ''
-        # if self.request.params.get("BGT","0") == "0":list_DB = ''
-        # if self.request.params.get("schedule","0") == "0":list_schedule = ''
-        #
-        # if "Year" in self.request.params:
-        #     project_year = self.request.params.get("Year",'')
-        #
-        # if "Reason_Project" in self.request.params:
-        #     project_reason = self.request.params.get('Reason_Project',"")
-        #
-        # if "myradio" in self.request.params:
-        #     print "\n\n\n\nHave myradio\n\n\n\n\n\n"
-        #     if self.request.params["myradio"] == "2":
-        #         project_Calibration = u"กิจกรรมที่ไม่นับหน่วยชั่วโมง,"
-        #     elif self.request.params["myradio"] == "1":
-        #         project_Calibration = u"กิจกรรมเลือกเข้าร่วม,"
-        #         if self.request.params.get("checkbox1","") != "":
-        #             project_Calibration += u"ด้านพัฒนาทักษะทางวิชาการและวิชาชีพ:"+self.request.params.get("CB1",'')+","
-        #         if self.request.params.get("checkbox2","") != "":
-        #             project_Calibration += u"ด้านกีฬาและการส่งเสริมสุขภาพ:"+self.request.params.get("CB2",'')+","
-        #         if self.request.params.get("checkbox3","") != "":
-        #             project_Calibration += u"ด้านบำเพ็ญประโยชน์และรักษาสิ่งแวดล้อม:"+self.request.params.get("CB3","")+","
-        #         if self.request.params.get("checkbox4","") != "":
-        #             project_Calibration += u"ด้านทำนุบำรุงศิลปะและวัฒนธรรม:"+self.request.params.get("CB4","")+","
-        #         if self.request.params.get("checkbox5","") != "":
-        #             project_Calibration += u"ด้านนันทนาการและการพัฒนาบุคลิกภาพ:"+self.request.params.get("CB5","")+","
-        #         if self.request.params.get("checkbox6","") != "" :
-        #             project_Calibration += u"ด้านความภูมิใจ ความรัก ความผูกพันธ์มหาวิทยาลัย:"+self.request.params.get("CB6","")+","
-        # dict_type = {u"ด้านพัฒนาทักษะทางวิชาการและวิชาชีพ":1,u"ด้านกีฬาและการส่งเสริมสุขภาพ":2,u"ด้านบำเพ็ญประโยชน์และรักษาสิ่งแวดล้อม":3,u"ด้านทำนุบำรุงศิลปะและวัฒนธรรม":4,u"ด้านนันทนาการและการพัฒนาบุคลิกภาพ":5,u"ด้านความภูมิใจ ความรัก ความผูกพันธ์มหาวิทยาลัย":6}
-        #
-        # count_OJ = 1
-        # if "OJ1" in self.request.params:
-        #     list_OJ = ''
-        # while True:
-        #     print "\n\nfucking loop\n\n"
-        #     name_inParam = "OJ"+str(count_OJ)
-        #     if name_inParam in self.request.params:
-        #         list_OJ += self.request.params[name_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_OJ+=1
-        #
-        # count_Bene = 1
-        # if "Benefits1_1" in self.request.params:
-        #     project_Bene = ''
-        # while True:
-        #     print "\n\nfucking loop\n\n"
-        #     name_inParam = "Benefits1_"+str(count_Bene)
-        #     if name_inParam in self.request.params:
-        #         project_Bene += self.request.params[name_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_Bene+=1
-        #
-        # count_P_R = 1
-        # if "P_R1" in self.request.params:
-        #     list_PR = ''
-        # while True:
-        #     name_PR_inParam = "P_R"+str(count_P_R)
-        #     if name_PR_inParam in self.request.params:
-        #         list_PR += self.request.params[name_PR_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_P_R+=1
-        #
-        # if "Advisor_F" in self.request.params or "Advisor_L" in self.request.params or "Advisor_MR" in self.request.params:
-        #     project_advisor = self.request.params.get("Advisor_MR",'')+unichr(172)+self.request.params.get("Advisor_F",'')+unichr(172)+self.request.params.get("Advisor_L",'')
-        #
-        # count_P_M = 1
-        # if "P_M1" in self.request.params:
-        #     list_PM = ''
-        # while True:
-        #     name_PM_inParam = "P_M"+str(count_P_M)
-        #     if name_PM_inParam in self.request.params:
-        #         list_PM += self.request.params[name_PM_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_P_M+=1
-        #
-        # if "P_P" in self.request.params:
-        #     project_activity_location = self.request.params.get("P_P",'')
-        #
-        # if "P_C" in self.request.params:
-        #     project_activity_type = self.request.params["P_C"]
-        #
-        # if "O_E" in self.request.params:
-        #     project_previouse_result = self.request.params["O_E"]
-        #
-        # count_DB = 1
-        # if "BGT1_1" in self.request.params:
-        #     list_DB = ''
-        # while True:
-        #     name_DB1_inParam = "BGT1_"+str(count_DB)
-        #     name_DB2_inParam = "BGT2_"+str(count_DB)
-        #     name_DB3_inParam = "BGT3_"+str(count_DB)
-        #     if name_DB1_inParam in self.request.params and name_DB2_inParam in self.request.params and name_DB3_inParam in self.request.params:
-        #         list_DB += self.request.params[name_DB1_inParam]+unichr(172)+self.request.params[name_DB2_inParam]+unichr(172)+self.request.params[name_DB3_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_DB+=1
-        #
-        # count_criteria = 1
-        # if "S_P1_1" in self.request.params:
-        #     project_criteria = ''
-        # while True:
-        #     print "\n\nfucking loop\n\n"
-        #     name_inParam = "S_P1_"+str(count_criteria)
-        #     if name_inParam in self.request.params:
-        #         project_criteria += self.request.params[name_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_criteria+=1
-        #
-        # if "evaluation" in self.request.params:
-        #     project_evaluation = self.request.params["evaluation"]
-        #
-        # if "Duration" in self.request.params:
-        #     project_duration = self.request.params["Duration"]
-        #
-        # count_schedule = 1
-        # if "schedule1_1" in self.request.params:
-        #     print "\n\n\n\n\nin this fucking condition\n\n\n\n\n"
-        #     list_schedule = ''
-        # while True:
-        #     name_schedule1_inParam = "schedule1_"+str(count_schedule)
-        #     name_schedule2_inParam = "schedule2_" + str(count_schedule)
-        #     if name_schedule1_inParam in self.request.params and name_schedule1_inParam in self.request.params:
-        #         list_schedule+=self.request.params[name_schedule1_inParam]+unichr(172)+self.request.params[name_schedule2_inParam]+unichr(171)
-        #     else:
-        #         break
-        #     count_schedule+=1
-
         if "save_proposal" in self.request.params:
             if self.request.params.get("OJ", "0") == "0": list_OJ = ''
             if self.request.params.get("P_R", "0") == "0": list_PR = ''
@@ -1197,6 +808,11 @@ class Project_view():
                 with transaction.manager:
                     proposal = self.request.db_session.query(Proposal).filter_by(parent_id=self.request.matchdict["project_id"]).first()
                     project = self.request.db_session.query(Project).filter_by(id=self.request.matchdict["project_id"]).first()
+                    member = project.project_member
+                    for i in member:
+                        text = i.First_name+"\t"+i.Last_name+"\t"+str(i.student_id)+unichr(171)
+                        if text not in list_PM.split(unichr(171)):
+                            list_PM += text
                     proposal.year = project_year
                     proposal.activity_location=project_activity_location
                     proposal.Reason = project_reason
@@ -1291,7 +907,7 @@ def download(request):
         return HTTPFound(location=request.route_url('addProject'))
     # os.remove('FRA241PROJECT/static/Gened_DOC/'+project.type+'_'+str(project.id)+'.docx')
     gennn(request.db_session,request.matchdict["project_id"],request.static_url('FRA241PROJECT:static/Gened_DOC/'))
-    time.sleep(3)
+    time.sleep(1)
     return Response('<iframe src='+request.static_url('FRA241PROJECT:static/Gened_DOC/'+project.type+'_'+str(project.id)+'.docx')+'></iframe>')
 
 

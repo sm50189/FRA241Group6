@@ -292,14 +292,14 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="${request.route_url('home')}">${request.user.user_id}</a>
+            <a class="navbar-brand page-scroll" href="${request.route_url('home')}">${request.user.First_name}</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <?python role_teacher = True if user.role == "Teacher" or user.role=="GOD" else False ?>
-                <?python role_admin = True if user.role == "Admin" else False ?>
+                <?python role_teacher = True if request.user.role == "Teacher" or request.user.role=="GOD" else False ?>
+                <?python role_admin = True if request.user.role == "Admin" else False ?>
                 <li tal:condition = "role_teacher">
                     <a class="page-scroll" href="${request.route_url('teacherProject')}">    <big class="glyphicon glyphicon-ok"></big></a> <!--ตรวจโครงการ-->
                 </li>
